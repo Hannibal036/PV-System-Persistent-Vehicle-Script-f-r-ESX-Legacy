@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS `player_vehicles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner` varchar(50) NOT NULL,
