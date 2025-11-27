@@ -12,7 +12,9 @@ end)
 
 RegisterNetEvent('pv:spawnVehicles')
 AddEventHandler('pv:spawnVehicles', function(vehicles)
+    local count = 0
     for _,v in pairs(vehicles) do
+        if count >= Config.MaxSpawnPerPlayer then break end
         local model = v.model
         local props = json.decode(v.props)
         local x, y, z = table.unpack(props.position)
@@ -20,5 +22,6 @@ AddEventHandler('pv:spawnVehicles', function(vehicles)
             ESX.Game.SetVehicleProperties(vehicle, props)
             spawnedVehicles[v.plate] = vehicle
         end)
+        count = count + 1
     end
 end)
